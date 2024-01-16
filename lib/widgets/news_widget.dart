@@ -18,11 +18,7 @@ class NewsWidget extends StatelessWidget {
           GestureDetector(
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return DetailsView(
-                  detailimage: articleModel.image,
-                  detaildescribtion: articleModel.subtitle!,
-                  detailtitle: articleModel.title,
-                );
+                return DetailsView(detailsmodel: articleModel);
               }));
             },
             child: ClipRRect(

@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                   height: 5,
                 ),
               ),
-              NewsListViewBuilder(kindnews: "sport"),
+              NewsListViewBuilder(kindnews: "general"),
             ],
           ),
         ));

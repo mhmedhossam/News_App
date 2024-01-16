@@ -1,16 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import '../models/article_model.dart';
+
 // ignore: must_be_immutable
 class DetailsView extends StatelessWidget {
-  String detailimage;
-  String detailtitle;
-  String? detaildescribtion;
-  DetailsView(
-      {super.key,
-      required this.detaildescribtion,
-      required this.detailimage,
-      required this.detailtitle});
+  ArticleModel detailsmodel;
+
+  DetailsView({super.key, required this.detailsmodel});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +32,7 @@ class DetailsView extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(6),
             child: CachedNetworkImage(
-              imageUrl: detailimage,
+              imageUrl: detailsmodel.image,
               progressIndicatorBuilder: (context, url, downloadProgress) =>
                   CircularProgressIndicator(value: downloadProgress.progress),
               errorWidget: (context, url, error) => const Icon(Icons.error),
@@ -45,14 +42,14 @@ class DetailsView extends StatelessWidget {
             height: 12,
           ),
           Text(
-            detailtitle,
+            detailsmodel.title,
             style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ),
           const SizedBox(
             height: 8,
           ),
           Text(
-            detaildescribtion!,
+            detailsmodel.subtitle ?? "",
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.normal),
           ),
         ],

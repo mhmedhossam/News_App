@@ -15,13 +15,14 @@ class NewsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverList(
-        delegate: SliverChildBuilderDelegate(
-      childCount: articles.length,
-      (context, index) {
-        return NewsWidget(
-          articleModel: articles[index],
-        );
-      },
-    ));
+      delegate: SliverChildBuilderDelegate(
+        childCount: articles.length,
+        (context, index) {
+          return NewsWidget(
+            articleModel: articles[index],
+          );
+        },
+      ),
+    );
   }
 }
